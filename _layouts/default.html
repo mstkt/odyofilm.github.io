@@ -22,11 +22,11 @@
     </div>
     <nav class="site-nav">
       <div class="nav-inner">
-        <a href="{{ '/kategori/short-film/' | relative_url }}"{% if page.url contains '/short-film/' %} class="active"{% endif %}>short film.</a>
-        <a href="{{ '/kategori/animation/' | relative_url }}"{% if page.url contains '/animation/' %} class="active"{% endif %}>animated ones.</a>
-        <a href="{{ '/kategori/vfx/' | relative_url }}"{% if page.url contains '/kategori/vfx/' %} class="active"{% endif %}>vfx ones.</a>
-        <a href="{{ '/' | relative_url }}"{% unless page.url contains 'kategori' or page.url contains 'search' or page.url contains 'about' or page.url contains 'tags' %} class="active"{% endunless %}>all of em.</a>
-        <a href="{{ '/about/' | relative_url }}"{% if page.url contains 'about' %} class="active"{% endif %}>about.</a>
+        <a href="{{ '/kategori/short-film/' | relative_url }}"{% if page.url contains '/kategori/short-film' %} class="active"{% endif %}>short film.</a>
+        <a href="{{ '/kategori/animation/' | relative_url }}"{% if page.url contains '/kategori/animation' %} class="active"{% endif %}>animated ones.</a>
+        <a href="{{ '/kategori/vfx/' | relative_url }}"{% if page.url contains '/kategori/vfx' %} class="active"{% endif %}>vfx ones.</a>
+        <a href="{{ '/' | relative_url }}"{% unless page.url contains '/kategori/' or page.url contains '/search' or page.url contains '/about' or page.url contains '/tags/' %} class="active"{% endunless %}>all of em.</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="active"{% endif %}>about.</a>
         <a href="{{ '/search/' | relative_url }}" class="search-icon" aria-label="search">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </a>
