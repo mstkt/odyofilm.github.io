@@ -49,12 +49,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .logo-wrap {
   display: block;
-  padding: 0;
-  margin-bottom: 0;
+  background: var(--bg);
+  border-radius: 18px 18px 18px 18px;
   line-height: 0;
 }
 
-.logo-link { display: inline-block; line-height: 0; }
+.logo-link { display: block; line-height: 0; }
 .logo-link:hover { opacity: .9; text-decoration: none; }
 
 .site-logo-img {
