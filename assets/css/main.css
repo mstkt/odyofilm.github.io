@@ -550,7 +550,6 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 640px) {
   .post-grid { grid-template-columns: 1fr; }
   .site-title { font-size: 2rem; }
-  .logo-wrap { padding: 14px 28px 10px; }
   .post-single { padding: 20px 18px 28px; }
   .result-thumb { width: 100px; }
   .result-thumb img { width: 100px; }
