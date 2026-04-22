@@ -6,7 +6,7 @@ baseurl: ""
 author: sakini
 email: mustafawuzun@gmail.com
 
-permalink: /:categories/:slug/
+permalink: /:year/:month/:slug/
 
 paginate: 12
 paginate_path: "/sayfa/:num/"
