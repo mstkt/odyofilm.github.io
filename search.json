@@ -1,0 +1,4 @@
+---
+layout: null
+---
+[{% for post in site.posts %}{"title":{{ post.title | jsonify }},"url":"{{ post.url | relative_url }}","tags":{{ post.tags | jsonify }},"categories":{{ post.categories | jsonify }},"date":"{{ post.date | date: '%Y-%m-%d' }}","video_type":"{{ post.video_type }}","video_id":"{{ post.video_id }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]

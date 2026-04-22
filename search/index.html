@@ -1,0 +1,102 @@
+---
+layout: default
+title: "search."
+permalink: /search/
+---
+
+<div class="search-page">
+  <div class="search-main">
+    <h2 class="search-heading">- search results</h2>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="yönetmen, şarkıcı, yapım şirketi..." autocomplete="off">
+      <button onclick="doSearch()">Search</button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+
+  <aside class="search-sidebar">
+    <div class="sidebar-block">
+      <span class="sidebar-label">search.</span>
+      <div class="search-bar sidebar-search">
+        <input type="text" id="search-input-2" placeholder="ara..." autocomplete="off">
+        <button onclick="doSearch2()">Search</button>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <span class="sidebar-label">random.</span>
+      <div id="random-posts"></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+var DATA_URL = "{{ '/search.json' | relative_url }}";
+var posts = [];
+
+fetch(DATA_URL)
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    posts = data;
+    var q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      document.getElementById('search-input').value = q;
+      document.getElementById('search-input-2').value = q;
+      renderResults(search(q));
+    }
+    renderRandom();
+  });
+
+function search(q) {
+  q = q.toLowerCase().trim();
+  if (!q) return [];
+  return posts.filter(function(p){
+    return (p.title && p.title.toLowerCase().includes(q)) ||
+           (p.tags && p.tags.some(function(t){ return t.toLowerCase().includes(q); })) ||
+           (p.categories && p.categories.some(function(c){ return c.toLowerCase().includes(q); }));
+  });
+}
+
+function thumb(p) {
+  if (p.video_type === 'youtube') return 'https://img.youtube.com/vi/'+p.video_id+'/mqdefault.jpg';
+  return '';
+}
+
+function renderResults(results) {
+  var el = document.getElementById('search-results');
+  if (!results.length) {
+    el.innerHTML = '<p class="no-results">Sonuç bulunamadı.</p>'; return;
+  }
+  el.innerHTML = results.map(function(p){
+    var img = thumb(p) ? '<img src="'+thumb(p)+'" alt="">' : '<div class="thumb-placeholder">▶</div>';
+    var tags = (p.tags||[]).slice(0,5).map(function(t){
+      return '<span class="tag-badge">'+t+'</span>';
+    }).join('');
+    return '<div class="search-result"><a href="'+p.url+'" class="result-thumb">'+img+'</a><div class="result-info"><h3><a href="'+p.url+'">'+p.title+'</a></h3><div class="post-tags">'+tags+'</div><time>'+p.date+'</time></div></div>';
+  }).join('');
+}
+
+function renderRandom() {
+  var shuffled = posts.slice().sort(function(){ return Math.random()-0.5; }).slice(0,6);
+  var el = document.getElementById('random-posts');
+  el.innerHTML = shuffled.map(function(p){
+    var img = thumb(p) ? '<img src="'+thumb(p)+'" alt="">' : '<div class="thumb-placeholder small">▶</div>';
+    return '<a href="'+p.url+'" class="random-item"><div class="random-thumb">'+img+'</div><span>'+p.title+'</span><time>'+p.date+'</time></a>';
+  }).join('');
+}
+
+function doSearch() {
+  var q = document.getElementById('search-input').value;
+  document.getElementById('search-input-2').value = q;
+  renderResults(search(q));
+  history.replaceState(null,'','?q='+encodeURIComponent(q));
+}
+function doSearch2() {
+  var q = document.getElementById('search-input-2').value;
+  document.getElementById('search-input').value = q;
+  renderResults(search(q));
+  history.replaceState(null,'','?q='+encodeURIComponent(q));
+}
+document.getElementById('search-input').addEventListener('keyup', function(e){ if(e.key==='Enter') doSearch(); });
+document.getElementById('search-input-2').addEventListener('keyup', function(e){ if(e.key==='Enter') doSearch2(); });
+</script>
