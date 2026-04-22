@@ -2,8 +2,6 @@
 layout: default
 ---
 
-{% include year-filter.html %}
-
 <div class="post-grid" id="post-grid">
   {% for post in site.posts %}
     {% assign post_cat = post.categories | first | slugify | default: "" %}

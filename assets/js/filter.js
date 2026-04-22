@@ -1,6 +1,5 @@
 (function () {
   var activeYear = '';
-  var activeCat = '';
   var searchTerm = '';
 
   function readHash() {
@@ -16,8 +15,6 @@
   function writeHash() {
     var parts = [];
     if (activeYear) parts.push('year=' + activeYear);
-    if (activeCat) parts.push('cat=' + activeCat);
-    var hash = parts.length ? '#' + parts.join('&') : window.location.pathname + window.location.search;
     history.replaceState(null, '', parts.length ? '#' + parts.join('&') : window.location.pathname);
   }
 
@@ -27,16 +24,14 @@
     var term = searchTerm.toLowerCase();
     cards.forEach(function (card) {
       var yearMatch = !activeYear || card.dataset.year === activeYear;
-      var catMatch = !activeCat || card.dataset.cat === activeCat;
       var textMatch = !term || card.textContent.toLowerCase().indexOf(term) > -1;
-      var show = yearMatch && catMatch && textMatch;
+      var show = yearMatch && textMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
     var countEl = document.getElementById('filter-count');
     if (countEl) {
-      var hasFilter = activeYear || activeCat || searchTerm;
-      countEl.textContent = hasFilter ? visible + ' sonuç' : '';
+      countEl.textContent = (activeYear || searchTerm) ? visible + ' videos' : '';
     }
     writeHash();
   }
@@ -50,16 +45,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     var params = readHash();
     if (params.year) activeYear = params.year;
-    if (params.cat) activeCat = params.cat;
-
-    document.querySelectorAll('.cat-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.dataset.value === activeCat);
-      btn.addEventListener('click', function () {
-        activeCat = btn.dataset.value;
-        setActiveBtn('.cat-btn', activeCat);
-        applyFilters();
-      });
-    });
 
     document.querySelectorAll('.year-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.value === activeYear);
@@ -78,6 +63,6 @@
       });
     }
 
-    if (activeYear || activeCat) applyFilters();
+    if (activeYear) applyFilters();
   });
 }());
