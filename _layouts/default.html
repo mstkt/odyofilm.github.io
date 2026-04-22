@@ -19,7 +19,7 @@
         {% assign cats = site.categories | sort %}
         {% for cat in cats limit:8 %}
           {% unless cat[0] == "Uncategorized" or cat[0] == "ackopek" %}
-            <a href="{{ '/kategori/' | append: cat[0] | slugify | relative_url }}">{{ cat[0] }}</a>
+            <a href="{{ '/kategori/' | append: cat[0] | slugify | append: '/' | relative_url }}">{{ cat[0] }}</a>
           {% endunless %}
         {% endfor %}
       </nav>
