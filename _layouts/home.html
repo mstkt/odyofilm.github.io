@@ -4,6 +4,10 @@ layout: default
 
 {% include year-filter.html %}
 
+<div class="cat-header">
+  <h1><span>all of em.</span> videos</h1>
+</div>
+
 <div class="post-grid" id="post-grid">
   {% for post in site.posts %}
     {% assign post_cat = post.categories | first | slugify | default: "" %}

@@ -36,13 +36,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
 .site-header {
-  background: var(--bg);
+  background: var(--header-bg);
   text-align: center;
-  padding-top: 24px;
+  padding-top: 14px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
 }
 
 .logo-wrap {
@@ -55,13 +55,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 .site-logo-img {
   display: block;
-  height: 100px;
+  height: 82px;
   width: auto;
 }
 
 .site-nav {
-  padding: 10px 0;
-  margin-top: 2px;
+  padding: 6px 0 0;
+  margin-top: 0;
 }
 
 .nav-inner {
@@ -80,9 +80,9 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 4px;
   transition: background .15s, color .15s;
 }
-.site-nav a:hover { text-decoration: none; background: rgba(0,0,0,.06); }
+.site-nav a:hover { text-decoration: none; background: rgba(255,255,255,.1); }
 .site-nav a.active {
-  background: var(--header-bg);
+  background: #2a2a2a;
   color: var(--accent);
 }
 
