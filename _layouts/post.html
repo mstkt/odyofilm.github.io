@@ -6,10 +6,18 @@ layout: default
 
   <header class="post-header">
     {% for cat in page.categories %}
-      <span class="cat-badge">{{ cat }}</span>
+      <a class="cat-badge" href="{{ '/kategori/' | append: cat | slugify | append: '/' | relative_url }}">{{ cat }}</a>
     {% endfor %}
     <h1 class="post-title">{{ page.title }}</h1>
     <time class="post-date">{{ page.date | date: "%d.%m.%Y" }}</time>
+    {% if page.tags and page.tags.size > 0 %}
+    <div class="post-tags" style="margin-top:10px;">
+      {% for tag in page.tags %}
+        {% assign tag_slug = tag | slugify %}
+        <a class="tag-badge" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
   </header>
 
   <div class="post-embed">

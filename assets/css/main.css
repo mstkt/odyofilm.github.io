@@ -146,14 +146,33 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--font-ui);
   font-size: 0.68rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   background: var(--accent);
   color: #fff;
   padding: 2px 8px;
   border-radius: 10px;
   margin-right: 4px;
   margin-bottom: 6px;
+}
+
+.tag-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  color: var(--text-light);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-right: 3px;
+  margin-bottom: 4px;
+  transition: background .15s, color .15s;
+}
+.tag-badge:hover {
+  background: var(--nav-color);
+  color: #fff;
+  border-color: var(--nav-color);
+  text-decoration: none;
 }
 
 .post-title {

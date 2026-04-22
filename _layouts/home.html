@@ -35,12 +35,20 @@ layout: default
 
       <div class="post-info">
         {% for cat in post.categories %}
-          <span class="cat-badge">{{ cat }}</span>
+          <a class="cat-badge" href="{{ '/kategori/' | append: cat | slugify | append: '/' | relative_url }}">{{ cat }}</a>
         {% endfor %}
         <h2 class="post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
         <time class="post-date">{{ post.date | date: "%d.%m.%Y" }}</time>
+        {% if post.tags and post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in post.tags limit:4 %}
+            {% assign tag_slug = tag | slugify %}
+            <a class="tag-badge" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
     </article>
   {% endfor %}
