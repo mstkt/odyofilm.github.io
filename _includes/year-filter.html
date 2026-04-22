@@ -1,15 +1,20 @@
-<div class="toolbar">
-  <div class="year-filter">
-    <select onchange="if(this.value) window.location=this.value" aria-label="Yıla göre filtrele">
-      <option value="">FILTER BY YEAR ▾</option>
-      {% assign year_list = "2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2012,2010" | split: "," %}
-      {% for year in year_list %}
-        <option value="{{ '/kategori/' | append: year | append: '/' | relative_url }}"
-          {% if page.category == year %}selected{% endif %}>{{ year }}</option>
-      {% endfor %}
-    </select>
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-group cat-group">
+    <button class="filter-btn cat-btn active" data-value="">all of em.</button>
+    <button class="filter-btn cat-btn" data-value="short-film">short film.</button>
+    <button class="filter-btn cat-btn" data-value="animation">animated ones.</button>
+    <button class="filter-btn cat-btn" data-value="vfx">vfx ones.</button>
   </div>
-  {% if include.show_hey_look %}
-  <button class="hey-look" onclick="heyLook()">hey look.</button>
-  {% endif %}
+  <div class="filter-group year-group">
+    <button class="filter-btn year-btn active" data-value="">tümü</button>
+    {% assign year_list = "2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2012,2010" | split: "," %}
+    {% for year in year_list %}
+      <button class="filter-btn year-btn" data-value="{{ year }}">{{ year }}</button>
+    {% endfor %}
+  </div>
+  <div class="filter-actions">
+    <input type="text" id="filter-search" placeholder="ara..." autocomplete="off">
+    <button class="hey-look" onclick="heyLook()">rastgele</button>
+  </div>
+  <div class="filter-count" id="filter-count"></div>
 </div>

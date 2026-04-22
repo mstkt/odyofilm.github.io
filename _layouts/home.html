@@ -2,11 +2,16 @@
 layout: default
 ---
 
-{% include year-filter.html show_hey_look=true %}
+{% include year-filter.html %}
 
 <div class="post-grid" id="post-grid">
-  {% for post in paginator.posts %}
-    <article class="post-card" data-url="{{ post.url | relative_url }}">
+  {% for post in site.posts %}
+    {% assign post_cat = post.categories | first | slugify | default: "" %}
+    {% assign post_year = post.date | date: "%Y" %}
+    <article class="post-card"
+      data-url="{{ post.url | relative_url }}"
+      data-year="{{ post_year }}"
+      data-cat="{{ post_cat }}">
       {% if post.video_type == "youtube" %}
         <div class="post-thumb">
           <a href="{{ post.url | relative_url }}">
@@ -50,19 +55,8 @@ layout: default
   {% endfor %}
 </div>
 
-{% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; yeni</a>
-  {% endif %}
-  <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">eski &rarr;</a>
-  {% endif %}
-</nav>
-{% endif %}
-
 <script>
   var posts = [{% for post in site.posts %}"{{ post.url | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
   function heyLook() { window.location = posts[Math.floor(Math.random() * posts.length)]; }
 </script>
+<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
