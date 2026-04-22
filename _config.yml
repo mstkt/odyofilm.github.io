@@ -1,0 +1,34 @@
+title: "odyofilm."
+description: "müzik videoları / music videos"
+url: "https://mstkt.github.io"
+baseurl: ""
+
+author: sakini
+email: mustafawuzun@gmail.com
+
+permalink: /:categories/:slug/
+
+paginate: 12
+paginate_path: "/sayfa/:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Dışarıda bırakılacak dosyalar
+exclude:
+  - parse_sql.py
+  - posts.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.py"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

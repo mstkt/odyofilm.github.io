@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Leningrad - Kolshik"
+date: 2017-05-17 06:14:00 +0300
+categories: ["2017"]
+tags: ["leningrad", "ilya naishuller", "fancyshot"]
+video_type: "vimeo"
+video_id: "204150149"
+thumbnail: "https://odyofilm.com/wp-content/uploads/2017/05/618602966.jpg"
+---

@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="post-grid">
+  {% for post in paginator.posts %}
+    <article class="post-card">
+      {% if post.video_type == "youtube" %}
+        <div class="post-thumb">
+          <a href="{{ post.url | relative_url }}">
+            <img src="https://img.youtube.com/vi/{{ post.video_id }}/mqdefault.jpg"
+                 alt="{{ post.title }}"
+                 loading="lazy">
+          </a>
+        </div>
+      {% elsif post.video_type == "vimeo" %}
+        <div class="post-thumb post-thumb--novideo">
+          <a href="{{ post.url | relative_url }}">
+            <span class="play-icon">▶</span>
+          </a>
+        </div>
+      {% elsif post.thumbnail %}
+        <div class="post-thumb">
+          <a href="{{ post.url | relative_url }}">
+            <img src="{{ post.thumbnail }}" alt="{{ post.title }}" loading="lazy">
+          </a>
+        </div>
+      {% else %}
+        <div class="post-thumb post-thumb--novideo">
+          <a href="{{ post.url | relative_url }}">
+            <span class="play-icon">♫</span>
+          </a>
+        </div>
+      {% endif %}
+
+      <div class="post-info">
+        {% for cat in post.categories %}
+          <span class="cat-badge">{{ cat }}</span>
+        {% endfor %}
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <time class="post-date">{{ post.date | date: "%d.%m.%Y" }}</time>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; yeni</a>
+  {% endif %}
+  <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">eski &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}
