@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% include year-filter.html show_hey_look=false %}
+
 <div class="cat-header">
   <h1><span>{{ page.title }}</span></h1>
 </div>
@@ -15,15 +17,12 @@ layout: default
         <div class="post-thumb">
           <a href="{{ post.url | relative_url }}">
             <img src="https://img.youtube.com/vi/{{ post.video_id }}/mqdefault.jpg"
-                 alt="{{ post.title }}"
-                 loading="lazy">
+                 alt="{{ post.title }}" loading="lazy">
           </a>
         </div>
       {% elsif post.video_type == "vimeo" %}
         <div class="post-thumb post-thumb--novideo">
-          <a href="{{ post.url | relative_url }}">
-            <span class="play-icon">▶</span>
-          </a>
+          <a href="{{ post.url | relative_url }}"><span class="play-icon">▶</span></a>
         </div>
       {% elsif post.thumbnail %}
         <div class="post-thumb">
@@ -33,9 +32,7 @@ layout: default
         </div>
       {% else %}
         <div class="post-thumb post-thumb--novideo">
-          <a href="{{ post.url | relative_url }}">
-            <span class="play-icon">♫</span>
-          </a>
+          <a href="{{ post.url | relative_url }}"><span class="play-icon">♫</span></a>
         </div>
       {% endif %}
 
@@ -47,6 +44,13 @@ layout: default
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
         <time class="post-date">{{ post.date | date: "%d.%m.%Y" }}</time>
+        {% if post.tags and post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in post.tags limit:5 %}
+            <a class="tag-badge" href="{{ '/tags/' | append: tag | slugify | append: '/' | relative_url }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
     </article>
   {% endfor %}

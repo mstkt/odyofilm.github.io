@@ -2,20 +2,7 @@
 layout: default
 ---
 
-<div class="toolbar">
-  <div class="year-filter">
-    <select onchange="if(this.value) window.location=this.value" aria-label="Yıla göre filtrele">
-      <option value="">FILTER BY YEAR ▾</option>
-      {% assign years = site.categories | sort %}
-      {% for cat in years %}
-        {% if cat[0] | plus: 0 > 2000 %}
-          <option value="{{ '/kategori/' | append: cat[0] | append: '/' | relative_url }}">{{ cat[0] }}</option>
-        {% endif %}
-      {% endfor %}
-    </select>
-  </div>
-  <button class="hey-look" onclick="heyLook()">hey look.</button>
-</div>
+{% include year-filter.html show_hey_look=true %}
 
 <div class="post-grid" id="post-grid">
   {% for post in paginator.posts %}
@@ -77,7 +64,5 @@ layout: default
 
 <script>
   var posts = [{% for post in site.posts %}"{{ post.url | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
-  function heyLook() {
-    window.location = posts[Math.floor(Math.random() * posts.length)];
-  }
+  function heyLook() { window.location = posts[Math.floor(Math.random() * posts.length)]; }
 </script>

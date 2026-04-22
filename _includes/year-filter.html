@@ -1,0 +1,18 @@
+<div class="toolbar">
+  <div class="year-filter">
+    <select onchange="if(this.value) window.location=this.value" aria-label="Yıla göre filtrele">
+      <option value="">FILTER BY YEAR ▾</option>
+      {% assign years = site.categories | sort | reverse %}
+      {% for cat in years %}
+        {% assign y = cat[0] | plus: 0 %}
+        {% if y > 2000 %}
+          <option value="{{ '/kategori/' | append: cat[0] | append: '/' | relative_url }}"
+            {% if page.category == cat[0] %}selected{% endif %}>{{ cat[0] }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  {% if include.show_hey_look %}
+  <button class="hey-look" onclick="heyLook()">hey look.</button>
+  {% endif %}
+</div>

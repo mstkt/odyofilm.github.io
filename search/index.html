@@ -77,11 +77,10 @@ function renderResults(results) {
 }
 
 function renderRandom() {
-  var shuffled = posts.slice().sort(function(){ return Math.random()-0.5; }).slice(0,6);
+  var shuffled = posts.slice().sort(function(){ return Math.random()-0.5; }).slice(0,7);
   var el = document.getElementById('random-posts');
   el.innerHTML = shuffled.map(function(p){
-    var img = thumb(p) ? '<img src="'+thumb(p)+'" alt="">' : '<div class="thumb-placeholder small">▶</div>';
-    return '<a href="'+p.url+'" class="random-item"><div class="random-thumb">'+img+'</div><span>'+p.title+'</span><time>'+p.date+'</time></a>';
+    return '<a href="'+p.url+'" class="random-item"><div class="random-play">▶</div><span>'+p.title+'</span><time>'+p.date+'</time></a>';
   }).join('');
 }
 
