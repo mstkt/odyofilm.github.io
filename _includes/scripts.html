@@ -1,0 +1,5 @@
+<script>
+  var posts = [{% for post in site.posts %}"{{ post.url | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+  function heyLook() { window.location = posts[Math.floor(Math.random() * posts.length)]; }
+</script>
+<script src="{{ '/assets/js/filter.js' | relative_url }}?v=3"></script>
