@@ -37,20 +37,24 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── Header ─────────────────────────────────────────────────────────────── */
 .site-header {
   background: var(--header-bg);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 14px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  /* no box-shadow — active button seamlessly connects to gray content frame */
 }
 
 .logo-wrap {
-  display: inline-block;
+  display: block;
   padding: 0;
+  margin-bottom: 0;
+  line-height: 0;
 }
 
-.logo-link { display: inline-block; }
+.logo-link { display: inline-block; line-height: 0; }
 .logo-link:hover { opacity: .9; text-decoration: none; }
 
 .site-logo-img {
@@ -60,6 +64,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .site-nav {
+  width: 100%;
   background: var(--bg);
   padding: 6px 0 0;
   margin-top: 0;
@@ -68,7 +73,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-inner {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 4px;
   flex-wrap: wrap;
 }
@@ -78,10 +83,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.88rem;
   color: var(--nav-color);
   padding: 5px 14px;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   transition: background .15s, color .15s;
 }
-.site-nav a:hover { text-decoration: none; background: rgba(255,255,255,.1); }
+.site-nav a:hover { text-decoration: none; background: rgba(0,0,0,.07); }
 .site-nav a.active {
   background: var(--header-bg);
   color: var(--accent);
