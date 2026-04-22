@@ -60,6 +60,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .site-nav {
+  background: var(--bg);
   padding: 6px 0 0;
   margin-top: 0;
 }
@@ -82,7 +83,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .site-nav a:hover { text-decoration: none; background: rgba(255,255,255,.1); }
 .site-nav a.active {
-  background: #2a2a2a;
+  background: var(--header-bg);
   color: var(--accent);
 }
 
@@ -95,9 +96,14 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Main ───────────────────────────────────────────────────────────────── */
 .site-main {
-  background: var(--header-bg);
-  padding: 0 0 60px;
+  background: transparent;
+  padding: 0;
   min-height: 70vh;
+}
+
+.site-main > .container {
+  background: var(--header-bg);
+  padding-bottom: 60px;
 }
 
 /* ── Filter Bar ─────────────────────────────────────────────────────────── */
