@@ -2,14 +2,10 @@
   <div class="year-filter">
     <select onchange="if(this.value) window.location=this.value" aria-label="Yıla göre filtrele">
       <option value="">FILTER BY YEAR ▾</option>
-      {% assign sorted_cats = site.categories | sort | reverse %}
-      {% for cat in sorted_cats %}
-        {% assign cat_name = cat | first %}
-        {% assign y = cat_name | plus: 0 %}
-        {% if y > 2000 %}
-          <option value="{{ '/kategori/' | append: cat_name | append: '/' | relative_url }}"
-            {% if page.category == cat_name %}selected{% endif %}>{{ cat_name }}</option>
-        {% endif %}
+      {% assign year_list = "2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2012,2010" | split: "," %}
+      {% for year in year_list %}
+        <option value="{{ '/kategori/' | append: year | append: '/' | relative_url }}"
+          {% if page.category == year %}selected{% endif %}>{{ year }}</option>
       {% endfor %}
     </select>
   </div>
