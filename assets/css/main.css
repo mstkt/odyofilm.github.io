@@ -36,18 +36,18 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
 .site-header {
-  background: var(--header-bg);
+  background: var(--bg);
   text-align: center;
   padding-top: 24px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
 }
 
 .logo-wrap {
   display: inline-block;
-  padding: 18px 0 0;
+  padding: 0;
 }
 
 .logo-link { display: inline-block; }
@@ -55,7 +55,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .site-logo-img {
   display: block;
-  height: 90px;
+  height: 100px;
   width: auto;
 }
 
@@ -80,9 +80,9 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 4px;
   transition: background .15s, color .15s;
 }
-.site-nav a:hover { text-decoration: none; background: rgba(255,255,255,.1); }
+.site-nav a:hover { text-decoration: none; background: rgba(0,0,0,.06); }
 .site-nav a.active {
-  background: #2a2a2a;
+  background: var(--header-bg);
   color: var(--accent);
 }
 
@@ -95,7 +95,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Main ───────────────────────────────────────────────────────────────── */
 .site-main {
-  padding: 32px 0 60px;
+  background: var(--header-bg);
+  padding: 0 0 60px;
   min-height: 70vh;
 }
 
@@ -106,7 +107,7 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
   justify-content: center;
   gap: 6px 10px;
-  padding: 10px 20px 14px;
+  padding: 18px 20px 16px;
 }
 
 .year-group {
@@ -360,15 +361,15 @@ img { max-width: 100%; height: auto; display: block; }
 .post-nav__next { text-align: right; margin-left: auto; }
 
 /* ── Category / Tag header ──────────────────────────────────────────────── */
-.cat-header { margin-bottom: 28px; }
+.cat-header { margin-bottom: 28px; padding-top: 32px; }
 .cat-header h1 {
   font-size: 1.6rem;
   font-weight: normal;
-  color: var(--text);
+  color: rgba(255,255,255,.85);
 }
 .cat-header h1 span {
   background: var(--accent);
-  color: #fff;
+  color: #1a1a1a;
   padding: 2px 12px;
   border-radius: 4px;
   margin-right: 8px;
