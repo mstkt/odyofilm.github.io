@@ -25,6 +25,7 @@ exclude:
   - Gemfile.lock
   - README.md
   - "*.py"
+  - vendor/
 
 defaults:
   - scope:
