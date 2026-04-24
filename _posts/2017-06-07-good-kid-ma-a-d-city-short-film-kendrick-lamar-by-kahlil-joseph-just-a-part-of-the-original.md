@@ -5,6 +5,6 @@ date: 2017-06-07 21:57:00 +0300
 categories: []
 tags: ["kahlil joseph", "kendrick lamar"]
 video_type: "youtube"
-video_id: "4fLKcHu-LJo"
-thumbnail: "https://odyofilm.com/wp-content/uploads/2017/06/4fLKcHu-LJo.jpg"
+video_id: "cGkUpjyL7y8"
+thumbnail: "https://img.youtube.com/vi/cGkUpjyL7y8/maxresdefault.jpg"
 ---
