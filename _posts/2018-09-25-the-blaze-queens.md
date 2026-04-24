@@ -4,8 +4,8 @@ title: "THE BLAZE | QUEENS"
 date: 2018-09-25 13:29:00 +0300
 categories: ["2018"]
 tags: ["iconoclast", "the blaze"]
-video_type: "vimeo"
-video_id: "288713682"
+video_type: "youtube"
+video_id: "54fea7wuV6s"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/09/the-blaze-queens-288713682.jpg"
 ---
 

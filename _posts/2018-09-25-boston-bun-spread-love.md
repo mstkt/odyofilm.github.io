@@ -4,8 +4,8 @@ title: "BOSTON BUN - SPREAD LOVE"
 date: 2018-09-25 13:03:00 +0300
 categories: ["vfx", "2018"]
 tags: ["boston bun", "simon cahn", "mathematic", "division"]
-video_type: "vimeo"
-video_id: "277609149"
+video_type: "youtube"
+video_id: "5rF0AeF3FY4"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/09/boston-bun-8211-spread-love-277609149.jpg"
 ---
 

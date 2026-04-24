@@ -4,8 +4,8 @@ title: "Kormac | New Day dir. cut"
 date: 2018-09-25 13:39:00 +0300
 categories: ["2018"]
 tags: ["william armstrong", "kormac", "derek boyle"]
-video_type: "vimeo"
-video_id: "290253648"
+video_type: "youtube"
+video_id: "wvDo1mCkz2A"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/09/kormac-new-day-dir-cut-290253648.jpg"
 ---
 

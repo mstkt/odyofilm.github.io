@@ -4,8 +4,8 @@ title: "Brodinski - Split"
 date: 2018-09-25 13:06:00 +0300
 categories: ["2018"]
 tags: ["pavel brenner", "christopher ripley", "couscous saumon", "brodinsky"]
-video_type: "vimeo"
-video_id: "279624934"
+video_type: "youtube"
+video_id: "yVahuWUNZXQ"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/09/brodinski-8211-split-279624934.jpg"
 ---
 

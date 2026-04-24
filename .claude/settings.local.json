@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yt-dlp --version)",
+      "Bash(python -m yt_dlp --version)"
+    ]
+  }
+}

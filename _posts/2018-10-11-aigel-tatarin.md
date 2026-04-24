@@ -4,8 +4,8 @@ title: "AIGEL // Tatarin"
 date: 2018-10-11 15:17:00 +0300
 categories: ["2017"]
 tags: ["profilm", "aigel", "ilya soloview"]
-video_type: "vimeo"
-video_id: "234820489"
+video_type: "youtube"
+video_id: "yQR_NLeXKtw"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/10/658241149.jpg"
 ---
 

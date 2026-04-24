@@ -4,8 +4,8 @@ title: "THE EVERLASTERS • ORDINARY TRIBE"
 date: 2018-09-25 14:31:00 +0300
 categories: ["vfx", "2018"]
 tags: ["the everlasters", "alban coret"]
-video_type: "vimeo"
-video_id: "256955713"
+video_type: "youtube"
+video_id: "eJgddm39Ex8"
 thumbnail: "https://odyofilm.com/wp-content/uploads/2018/09/the-everlasters-ordinary-tribe-256955713.jpg"
 ---
 
